@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --color-ink: #141c24;
+  --color-deep: #0e161d;
+  --color-navy: #1b3348;
+  --color-copper: #9a6232;
+  --color-sand: #f4f0e7;
+  --color-paper: #fffcf8;
+  --color-line: #e5dccb;
+  --color-stone: #5c675f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-sand);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #ead7bc;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+}
+
+.editor-surface {
+  min-height: 320px;
+  outline: none;
+}
+
+.editor-surface:focus {
+  outline: none;
+}
+
+.article-body > :first-child,
+.editor-surface > :first-child {
+  margin-top: 0;
+}
+
+.article-body p,
+.editor-surface p,
+.article-body div,
+.editor-surface div {
+  margin-top: 1rem;
+  color: var(--color-stone);
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.article-body h2,
+.editor-surface h2,
+.article-body h3,
+.editor-surface h3 {
+  margin-top: 2rem;
+  color: var(--color-ink);
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.article-body h2,
+.editor-surface h2 {
+  font-size: 1.875rem;
+}
+
+.article-body h3,
+.editor-surface h3 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.article-body ul,
+.editor-surface ul,
+.article-body ol,
+.editor-surface ol {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  color: var(--color-stone);
+}
+
+.article-body ul,
+.editor-surface ul {
+  list-style: disc;
+}
+
+.article-body ol,
+.editor-surface ol {
+  list-style: decimal;
+}
+
+.article-body li + li,
+.editor-surface li + li {
+  margin-top: 0.5rem;
+}
+
+.article-body a,
+.editor-surface a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.article-body img,
+.editor-surface img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.article-body blockquote,
+.editor-surface blockquote {
+  margin-top: 1rem;
+  border-left: 3px solid var(--color-copper);
+  padding-left: 1rem;
+  color: var(--color-stone);
+  font-style: italic;
+}
+
+.article-body strong,
+.editor-surface strong {
+  color: var(--color-ink);
+  font-weight: 600;
 }
